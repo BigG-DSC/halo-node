@@ -1,28 +1,37 @@
-version: '2'
+version: "3.9"
 
 services:
-  postgres:
-    image: 'postgres:9.5'
-    env_file:
-      - '.env'
-    volumes:
-      - 'postgres:/var/lib/postgresql/data'
-    ports:
-      - '5432:5432'
+    database:
+      container_name: halo-db
+      image: 'postgres:9.5'
+      env_file:
+        - '.env'
+      ports:
+        - '5432:5432'
 
-  website:
-    build: .
-    command: >
-      gunicorn -b 0.0.0.0:8000
-        --access-logfile -
-        --reload
-        "space.app:create_app()"
-    env_file:
-      - '.env'
-    volumes:
-      - '.:/space'
-    ports:
-      - '8000:8000'
+    ipfs:
+        container_name: halo-ipfs
+        build: ./ipfs
+        env_file:
+            - '.env'
+        ports:
+            - "4000:4001"
+            - "8080:8080"
+            - "5002:5002"
 
-volumes:
-  postgres:
+    cryptographer:
+        container_name: halo-cryptographer
+        build: ./cryptographer
+        command: >
+          gunicorn -b 0.0.0.0:8000
+            --access-logfile -
+            --reload
+            --workers=3
+            --threads=3
+            "cryptographer.app:create_app()"
+        volumes:
+          - ./cryptographer:/cryptographer
+        env_file:
+            - '.env'
+        ports:
+            - "8000:8000"

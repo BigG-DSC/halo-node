@@ -1,0 +1,27 @@
+# Core.
+Flask
+werkzeug
+gunicorn
+
+# Testing and static analysis.
+pytest
+pytest-cov
+flake8
+
+# CLI.
+Click
+
+# Data and workers.
+psycopg2
+Flask-SQLAlchemy
+SQLAlchemy
+sqlalchemy_utils
+
+# Utils.
+fake-factory
+
+# Extensions.
+ipfshttpclient
+ipfsapi
+pybase62
+pytz
