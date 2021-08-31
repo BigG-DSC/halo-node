@@ -6,6 +6,7 @@ LABEL maintainer "Gioele Bigini <devbigdsc@gmail.com>"
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install ipfs using ipfs-update and initialize
+RUN apt-get update && apt-get install -y
 RUN go get -u github.com/ipfs/ipfs-update \
     && ipfs-update install latest \
     && ipfs init

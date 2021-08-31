@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 services:
     database:
@@ -10,27 +10,34 @@ services:
         - '5432:5432'
 
     ipfs:
-        container_name: halo-ipfs
-        build: ./ipfs
-        env_file:
-            - '.env'
-        ports:
-            - "4000:4001"
-            - "8080:8080"
-            - "5002:5002"
+      container_name: halo-ipfs
+      image: ipfs/go-ipfs:latest
+      # build: ./ipfs
+      env_file:
+        - '.env'
+      volumes:
+        - "./ipfs/ipfs:/data/ipfs"
+      ports:
+        - "5001:5001"
+        - "4001:4001"
+        - "8080:8080"
+      # ports:
+      #     - "4000:4001"
+      #     - "8080:8080"
+      #     - "5002:5002"
 
-    cryptographer:
-        container_name: halo-cryptographer
-        build: ./cryptographer
+    core:
+        container_name: halo-core
+        build: ./core
         command: >
           gunicorn -b 0.0.0.0:8000
             --access-logfile -
             --reload
             --workers=3
             --threads=3
-            "cryptographer.app:create_app()"
+            "core.app:create_app()"
         volumes:
-          - ./cryptographer:/cryptographer
+          - ./core:/core
         env_file:
             - '.env'
         ports:
