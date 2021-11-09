@@ -19,6 +19,7 @@ sqlalchemy_utils
 
 # Utils.
 fake-factory
+requests
 
 # Extensions.
 ipfshttpclient

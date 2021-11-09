@@ -3,8 +3,6 @@ import click
 from sqlalchemy_utils import database_exists, create_database
 
 from core.app import create_app
-from core.extensions import db
-from core.blueprints.ipfs.models.upload import Upload
 
 # Create an app context for the database connection.
 app = create_app()

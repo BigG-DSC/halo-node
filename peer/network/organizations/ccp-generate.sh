@@ -5,32 +5,38 @@ function one_line_pem {
 }
 
 function json_ccp {
-    local PP=$(one_line_pem $4)
-    local CP=$(one_line_pem $5)
+    local PP=$(one_line_pem $6)
+    local CP=$(one_line_pem $7)
     sed -e "s/\${ORG}/$1/" \
-        -e "s/\${P0PORT}/$2/" \
-        -e "s/\${CAPORT}/$3/" \
+        -e "s/\${MSP}/$2/" \
+        -e "s/\${IP}/$3/" \
+        -e "s/\${P0PORT}/$4/" \
+        -e "s/\${CAPORT}/$5/" \
         -e "s#\${PEERPEM}#$PP#" \
         -e "s#\${CAPEM}#$CP#" \
         ccp-template.json
 }
 
 function yaml_ccp {
-    local PP=$(one_line_pem $4)
-    local CP=$(one_line_pem $5)
+    local PP=$(one_line_pem $6)
+    local CP=$(one_line_pem $7)
     sed -e "s/\${ORG}/$1/" \
-        -e "s/\${P0PORT}/$2/" \
-        -e "s/\${CAPORT}/$3/" \
+        -e "s/\${MSP}/$2/" \
+        -e "s/\${IP}/$3/" \
+        -e "s/\${P0PORT}/$4/" \
+        -e "s/\${CAPORT}/$5/" \
         -e "s#\${PEERPEM}#$PP#" \
         -e "s#\${CAPEM}#$CP#" \
         ccp-template.yaml | sed -e $'s/\\\\n/\\\n        /g'
 }
 
-ORG=3
-P0PORT=11051
-CAPORT=11054
-PEERPEM=../organizations/peerOrganizations/org3.example.com/tlsca/tlsca.org3.example.com-cert.pem
-CAPEM=../organizations/peerOrganizations/org3.example.com/ca/ca.org3.example.com-cert.pem
+ORG=bigini
+MSP=BiginiMSP
+IP=192.168.1.200
+P0PORT=7051
+CAPORT=7054
+PEERPEM=../organizations/peerOrganizations/bigini.halonetwork.com/tlsca/tlsca.bigini.halonetwork.com-cert.pem
+CAPEM=../organizations/peerOrganizations/bigini.halonetwork.com/ca/ca.bigini.halonetwork.com-cert.pem
 
-echo "$(json_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > ../organizations/peerOrganizations/org3.example.com/connection-org3.json
-echo "$(yaml_ccp $ORG $P0PORT $CAPORT $PEERPEM $CAPEM)" > ../organizations/peerOrganizations/org3.example.com/connection-org3.yaml
+echo "$(json_ccp $ORG $MSP $IP $P0PORT $CAPORT $PEERPEM $CAPEM)" > ../organizations/peerOrganizations/bigini.halonetwork.com/connection-bigini.json
+echo "$(yaml_ccp $ORG $MSP $IP $P0PORT $CAPORT $PEERPEM $CAPEM)" > ../organizations/peerOrganizations/bigini.halonetwork.com/connection-bigini.yaml

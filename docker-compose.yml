@@ -1,31 +1,6 @@
 version: "3"
 
 services:
-    database:
-      container_name: halo-db
-      image: 'postgres:9.5'
-      env_file:
-        - '.env'
-      ports:
-        - '5432:5432'
-
-    ipfs:
-      container_name: halo-ipfs
-      image: ipfs/go-ipfs:latest
-      # build: ./ipfs
-      env_file:
-        - '.env'
-      volumes:
-        - "./ipfs/ipfs:/data/ipfs"
-      ports:
-        - "5001:5001"
-        - "4001:4001"
-        - "8080:8080"
-      # ports:
-      #     - "4000:4001"
-      #     - "8080:8080"
-      #     - "5002:5002"
-
     core:
         container_name: halo-core
         build: ./core
