@@ -2,6 +2,7 @@ from flask import Flask
 from itsdangerous import URLSafeTimedSerializer
 
 from core.blueprints.peer import peer
+from core.blueprints.ipfs import ipfs
 
 
 def create_app(settings_override=None):
@@ -20,6 +21,7 @@ def create_app(settings_override=None):
         app.config.update(settings_override)
 
     app.register_blueprint(peer)
+    app.register_blueprint(ipfs)
 
     return app
 
