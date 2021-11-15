@@ -1,0 +1,33 @@
+const { Gateway, Wallets, } = require('fabric-network');
+const fs = require('fs');
+const path = require("path")
+const log4js = require('log4js');
+const logger = log4js.getLogger('BasicNetwork');
+const util = require('util')
+
+const getNetwork = async () => {
+
+    try {
+        // load the network configuration
+        const ccpPath = path.resolve(__dirname, '..', 'config', 'connection-bigini.json');
+        const ccp = JSON.parse(fs.readFileSync(ccpPath, 'utf8'));
+
+        // create a new file system based wallet for managing identities
+        const walletPath = path.join(process.cwd(), 'wallet');
+        const wallet = await Wallets.newFileSystemWallet(walletPath);
+
+        // create gateway
+        const gateway = new Gateway();
+        await gateway.connect(ccp, {wallet, identity: 'appUser3', discovery: {enabled: true, asLocalhost: true}});
+
+        // disconnect from gateway
+        await gateway.disconnect();
+         
+        return JSON.parse('{"response":"ok"}')
+    } catch (error) {
+        console.error(`Failed connecting to the Gateway ${error}`);
+        return JSON.parse('{"error":"Failed connecting to the Gateway"}')
+    }
+}
+
+exports.getNetwork = getNetwork

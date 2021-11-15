@@ -1,0 +1,16 @@
+version: "3"
+
+networks:
+  test:
+
+services:
+  ipfs:
+    build: ../ipfs/orbit
+    command: >
+      node app.js
+    networks:
+      - test
+    volumes:
+      - ../ipfs/orbit/ipfs:/usr/src/app/ipfs
+    ports:
+      - 4000:4000
