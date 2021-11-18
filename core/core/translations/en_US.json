@@ -1,0 +1,62 @@
+{
+    "lang": "en_US",
+
+    "navbar_home": "Home",
+    "navbar_about": "About",
+    "navbar_cv": "Resume",
+    "navbar_research": "Research Publications",
+    "navbar_charity": "Charity",
+    "navbar_contact": "Contact",
+
+    "navbar_en": "English",
+    "navbar_it": "Italian",
+
+    "about_txt": "Data Scientist based in Urbino. Curious, Creative and Open Minded. A passionate data-driven mindset, enjoying to build tools that leverage data in decision-making.",
+    "about_skills_fields": "Fields",
+    "about_skills_languages": "Languages",
+    "about_skills_platforms": "Platforms",
+    "about_skills_soft": "Soft",
+
+    "resume_title": "Resume",
+    "resume_title_education": "Education",
+    "resume_title_professional": "Professional Experience",
+    "resume_phd_title": "PH.D. IN DIGITAL HEALTH",
+    "resume_phd_uniurb": "University of Urbino, Urbino, Italy",
+    "resume_phd_txt_1": "Started in November 2019, the PhD is in joint collaboration between University of Urbino, Politecnica delle Marche, and the startup DIGIT srl. The PhD is focused on enabling Artificial Intelligence in the Healthcare sector by means of decentralisation through Distributed Ledger Technology.",
+    "resume_phd_txt_2": "Please, take a look at Research Publications section.",
+    "resume_msc_title": "DOUBLE MASTER OF SCIENCE IN DATA SCIENCE",
+    "resume_msc_eit": "Data Science, Innovation and Entrepreneurship, EIT Digital, Stockholm, Sweden",
+    "resume_msc_polimi": "Computer Science and Engineering, Politecnico di Milano, Milan, Italy",
+    "resume_msc_madrid": "Informatics Engineering, Universidad Politécnica de Madrid, Madrid, Spain",
+    "resume_msc_txt": "Graduate of the EIT Digital Academy. The ICT Innovation Double-Degree programme combines a major in Data Science with a minor in Innovation & Entrepreneurship. It resulted in a double M.Sc. in Engineering and a Diploma in Data Science from all the institutions above.",
+    "resume_digit_title": "FULL STACK ENGINEER AND MOBILE DEVELOPER",
+    "resume_digit_inst": "DIGIT srl, Urbino, Italy",
+    "resume_digit_txt": "Lead in the design, development, and implementation of Balance - Postural Stability. Balance - Postural Stability © is a smartphone application developed by the researchers of the University of Urbino to measure your postural stability. The application is part of a large experiment that aims to monitor human stability.",
+    "resume_digit_txt_2": "The project is led by Prof. Emanuele Lattanzi whose research work can be found:",
+    "resume_imar_title": "DATA SCIENTIST",
+    "resume_imar_inst": "imar srl, Urbino, Italy",
+    "resume_imar_txt": "Design of the datawarehouse for business intelligence and process engineering purposes. Design of a system for consumers' estimate monitoring through machine learning techniques. Building Databases and Data processing for MySQL and Microsoft SQL Server.",
+    "resume_keywords": "Keywords",
+
+    "research_title": "Research Publications",
+
+    "charity_title": "Charity",
+    "charity_txt": "I am trying to envision a world where we give more than what we get. I am the SPO behind MARTE Pool. The pool is a Single Owned Charity Pool that donate 25% of its rewards to support the Italian Association of Multiple Sclerosis (AISM ONLUS).",
+    "charity_subtitle_1": "A Single Owner for a Single Pool",
+    "charity_subtxt_1": "The pool is up 24/7 for maximum performance.",
+    "charity_subtitle_2": "Owned Physical Servers",
+    "charity_subtxt_2": "MARTE infrastructure is maintained by his SPO, phisically.",
+    "charity_subtitle_3": "Minimum Operation Costs",
+    "charity_subtxt_3": "50k Pledge, Base 340 and 0% Operator Margin Fee. Basically run for free to give you the best APY.",
+
+    "contact_title": "Contact",
+    "contact_txt": "Feel free to reach me out on social networks or through the form below.",
+    "contact_location": "Location",
+    "contact_dept": "Department of Pure and Applied Sciences, University of Urbino, Piazza della Repubblica 13, 61029 Urbino, Italy",
+    "contact_name": "Your Name",
+    "contact_email": "Your Email",
+    "contact_subject": "Subject",
+    "contact_message": "Message",
+
+    "send": "Send Message"
+}

@@ -1,8 +1,8 @@
 {
-    "name": "test-network-${ORG}",
+    "name": "test-network-org${ORG}",
     "version": "1.0.0",
     "client": {
-        "organization": "${ORG}",
+        "organization": "Org${ORG}",
         "connection": {
             "timeout": {
                 "peer": {
@@ -12,32 +12,32 @@
         }
     },
     "organizations": {
-        "${ORG}": {
-            "mspid": "${MSP}",
+        "Org${ORG}": {
+            "mspid": "Org${ORG}MSP",
             "peers": [
-                "peer0.${ORG}.halonetwork.com"
+                "peer0.org${ORG}.example.com"
             ],
             "certificateAuthorities": [
-                "ca.${ORG}.halonetwork.com"
+                "ca.org${ORG}.example.com"
             ]
         }
     },
     "peers": {
-        "peer0.${ORG}.halonetwork.com": {
-            "url": "grpcs://${IP}:${P0PORT}",
+        "peer0.org${ORG}.example.com": {
+            "url": "grpcs://localhost:${P0PORT}",
             "tlsCACerts": {
                 "pem": "${PEERPEM}"
             },
             "grpcOptions": {
-                "ssl-target-name-override": "peer0.${ORG}.halonetwork.com",
-                "hostnameOverride": "peer0.${ORG}.halonetwork.com"
+                "ssl-target-name-override": "peer0.org${ORG}.example.com",
+                "hostnameOverride": "peer0.org${ORG}.example.com"
             }
         }
     },
     "certificateAuthorities": {
-        "ca.${ORG}.halonetwork.com": {
-            "url": "https://${IP}:${CAPORT}",
-            "caName": "ca-${ORG}",
+        "ca.org${ORG}.example.com": {
+            "url": "https://localhost:${CAPORT}",
+            "caName": "ca-org${ORG}",
             "tlsCACerts": {
                 "pem": "${CAPEM}"
             },

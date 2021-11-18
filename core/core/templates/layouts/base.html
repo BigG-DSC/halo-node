@@ -1,57 +1,103 @@
 {% import 'macros/flash.html' as flash with context %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <!-- Metadata -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="{% block meta_description %}{% endblock %}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta content="halo node bigini urbino balance phd data science health sensitive blockchain" name="keywords">
 
     <title>{% block title %}{% endblock %}</title>
-
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles/vendor/bootstrap.min.css') }}">
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles/main.css') }}">
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='styles/vendor/font-awesome.min.css') }}">
-    <script src="https://code.jquery.com/jquery-1.12.2.min.js"
-            integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="
-            crossorigin="anonymous"></script>
+  
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='images/favicon.png') }}" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='styles/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}">
   </head>
   <body>
-    {% block header %}{% endblock %}
     
-    <main class="container">
-      {{ flash.render() }}
+    <!-- ======= Mobile nav toggle button ======= -->
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-      <div class="md-margin-top">{% block heading %}{% endblock %}</div>
-      {% block body %}{% endblock %}
-    </main>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="d-flex flex-column">
 
-    <footer class="footer text-center">
-      <div class="container">
-        <ul class="list-inline">
-          <li class="text-muted">Snake Eyes &copy; 2016</li>
-          {% block footer %}{% endblock %}
-        </ul>
+        <div class="profile mt-3">
+          <img src="{{ url_for('static', filename='images/profile-img.png') }}" alt="" class="img-fluid">
+        </div>
+
+        <nav id="navbar" class="nav-menu navbar">
+          <ul>
+            <!-- 
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>{{ navbar_home }}</span></a></li>
+            <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>{{ navbar_about }}</span></a></li>
+            <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>{{ navbar_cv }}</span></a></li>
+            <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>{{ navbar_research }}</span></a></li>
+            <li><a href="#services" class="nav-link scrollto"><i class="bx bi-heart"></i> <span>{{ navbar_charity }}</span></a></li>
+            <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>{{ navbar_contact }}</span></a></li>
+             -->
+            <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+            <li><a href="#" class="nav-link scrollto"><i class="bx bx-link"></i> <span>Network</span></a></li>
+            <li><a href="#" class="nav-link scrollto"><i class="bx bx-wallet"></i> <span>Wallet</span></a></li>
+            <li><a href="#" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Core Team</span></a></li>
+            <li><a href="#" class="nav-link scrollto"><i class="bx bi-journal-text"></i> <span>FAQ</span></a></li>
+          </ul>
+        </nav><!-- .nav-menu -->
       </div>
-    </footer>
+    </header><!-- End Header -->
+    
+    {% block heading %}{% endblock %}
 
-    <script
-      src="{{ url_for('static', filename='scripts/vendor/bootstrap.min.js') }}">
-    </script>
-    <script
-      src="{{ url_for('static', filename='scripts/vendor/moment.min.js') }}">
-    </script>
-    <script
-      src="{{ url_for('static', filename='scripts/main.js') }}">
-    </script>
+    {% block body %}{% endblock %}
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        {% if "en" in request.path %}
+        <div class="copyright">Change Language</div>
+        {% else %}
+        <div class="copyright">Cambia Lingua</div> 
+        {% endif %}
+        <div class="copyright">
+          <div class="d-flex align-items-center justify-content-center m-0">
+            <a href="{{ url_for('page.landing', language='it_IT') }}" class="nav-link scrollto">{{ navbar_it }}</a> - <a href="{{ url_for('page.landing', language='en_US') }}" class="nav-link scrollto">{{ navbar_en }}</a>
+          </div>
+        </div>
+      </div>
+    </footer><!-- End  Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='styles/vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/purecounter/purecounter.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/typed.js/typed.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='styles/vendor/waypoints/noframework.waypoints.js') }}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
   </body>
 </html>

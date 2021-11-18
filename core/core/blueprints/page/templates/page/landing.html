@@ -1,0 +1,292 @@
+{% extends 'layouts/base.html' %}
+{% import 'macros/form.html' as f with context %}
+
+{% block title %}Gioele  Bigini{% endblock %}
+{% block meta_description %}Gioele Bigini{% endblock %}
+
+{% block body %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column align-items-center justify-content-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>ESTABLISH THE CONNECTION</h1>
+    </div>
+
+    <div class="hero-container" data-aos="fade-in">
+      
+      <section id="contact" class="contact">
+        <div class="container">
+          
+          <div class="row justify-content-center" data-aos="fade-in">
+  
+            <div class="col-lg-5 d-flex justify-content-center">
+              <div class="info d-flex justify-content-center flex-wrap">
+                  <h4>Scan the QR Code</h4>
+                  <img src="{{ url_for('static', filename='images/myqr.png') }}" class="img-fluid" alt="">
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+
+    </div> 
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <!--
+    <section id="about" class="about facts skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>{{ about_txt }}</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4" data-aos="fade-right">
+            <img src="{{ url_for('static', filename='images/dsc.jpg') }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+            <h3>Skills</h3>
+            <div class="row no-gutters">
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+                <div class="count-box lh-1">
+                  <p class="m-0 mb-2"><strong>{{ about_skills_fields }}</strong></p>
+                  <ul>
+                    <li class="m-2"><p class="m-0">Machine Learning</p></li>
+                    <li class="m-2"><p class="m-0">Data Management</p></li>
+                    <li class="m-2"><p class="m-0">Big Data</p></li>
+                    <li class="m-2"><p class="m-0">Blockchain</p></li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="count-box lh-1">
+                  <p class="m-0 mb-2"><strong>{{ about_skills_languages }}</strong></p>
+                  <ul>
+                    <li class="m-2"><p class="m-0">Python</p></li>
+                    <li class="m-2"><p class="m-0">SQL</p></li>
+                    <li class="m-2"><p class="m-0">Flutter</p></li>
+                    <li class="m-2"><p class="m-0">Java</p></li>
+                    <li class="m-2"><p class="m-0">C#</p></li>
+                    <li class="m-2"><p class="m-0">C</p></li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+                <div class="count-box lh-1">
+                  <p class="m-0 mb-2"><strong>{{ about_skills_platforms }}</strong></p>
+                  <ul>
+                    <li class="m-2"><p class="m-0">MySQL</p></li>
+                    <li class="m-2"><p class="m-0">MSFT SQL Server</p></li>
+                    <li class="m-2"><p class="m-0">Postgres SQL</p></li>
+                    <li class="m-2"><p class="m-0">Spark</p></li>
+                    <li class="m-2"><p class="m-0">Kafka</p></li>
+                    <li class="m-2"><p class="m-0">Flink</p></li>
+                    <li class="m-2"><p class="m-0">Qlikview</p></li>
+                  </ul>
+                </div>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="count-box lh-1">
+                  <p class="m-0 mb-2"><strong>{{ about_skills_soft }}</strong></p>
+                  <ul>
+                    <li class="m-2"><p class="m-0">Vagrant</p></li>
+                    <li class="m-2"><p class="m-0">Docker</p></li>
+                    <li class="m-2"><p class="m-0">Git</p></li>
+                  </ul>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <!--
+    <section id="resume" class="resume">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>{{ resume_title }}</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up">
+            <h3 class="resume-title">{{ resume_title_education }}</h3>
+            <div class="resume-item">
+              <h4>{{ resume_phd_title }}</h4>
+              <h5>2019 - 2022</h5>
+              <p><em>{{ resume_phd_uniurb }}</em></p>
+              <p>{{ resume_phd_txt_1 }}</p>
+              <p>{{ resume_phd_txt_2 }}</p>
+              <p><em>{{ resume_keywords }}: Data Science - Digital Health - Blockchain</em></p>
+            </div>
+            <div class="resume-item">
+              <div class="row">
+                <div class="col-md-9">
+                  <h4>{{ resume_msc_title }}</h4>
+                  <h5>2017 - 2019</h5>
+                </div>
+                <div class="col-md-3">
+                  <img src="{{ url_for('static', filename='images/eit.png') }}" class="img-fluid" alt="EIT">
+                </div>
+              </div>
+              <p><em>{{ resume_msc_eit }}<br>{{ resume_msc_polimi }}<br>{{ resume_msc_madrid }}</em></p>
+              <p>{{ resume_msc_txt }}
+              </p>
+              <p><em>{{ resume_keywords }}: Data Science - Business Management and Strategy - Engineering</em></p>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">{{ resume_title_professional }}</h3>
+            <div class="resume-item">
+              <h4>{{ resume_digit_title }}</h4>
+              <h5>2021 - 2022</h5>
+              <p><em>{{ resume_digit_inst }}</em></p>
+              <p>{{ resume_digit_txt }}</p>
+              <p>{{ resume_digit_txt_2 }} <a href="https://ieeexplore.ieee.org/document/9097903" target="blank_">"Standing Balance Assessment by Measurement of Body Center of Gravity Using Smartphones", E. Lattanzi et al.</a></p>
+              <p><em>{{ resume_keywords }}: Digital Health - Blockchain - Artificial Intelligence </em></p>
+            </div>
+            <div class="resume-item">
+              <h4>{{ resume_imar_title }}</h4>
+              <h5>2019 - 2020</h5>
+              <p><em>{{ resume_imar_inst }}</em></p>
+              <p>{{ resume_imar_txt }}</p>
+              <p><em>{{ resume_keywords }}: Business Intelligence - Data Management - Supervised Learning</em></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Research Publications Section ======= -->
+    <!--
+    <section id="portfolio" class="portfolio section-bg services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>{{ research_title }}</h2>
+        </div>
+
+
+        <div class="row align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-6 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <br>
+              <img src="{{ url_for('static', filename='images/balance.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://balancemobile.it" title="More Details" target="blank_"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="icon"><i class="bi bi-journal-text"></i></div>
+            <h4 class="title"><a href="https://www.mdpi.com/1999-5903/12/12/208" target="blank_">A Review on Blockchain for the Internet of Medical Things</a></h4>
+            <p class="description"><em>G. Bigini, V. Freschi and E. Lattanzi</em>, <b>Future Internet</b></p>
+            <br>
+            <div class="icon"><i class="bi bi-mic"></i></div>
+            <h4 class="title"><a href="#">Decentralising the Internet of Medical Things with Distributed Ledger Technologies and Off-Chain Storages: a Proof of Concept</a></h4>
+            <p class="description"><em>G. Bigini, V. Freschi, A. Bogliolo and E. Lattanzi</em>, <b>September 2021</b></p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Projects Section ======= -->
+    <!--
+    <section id="services" class="services portfolio">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>{{ charity_title }}</h2>
+          <p>{{ charity_txt }} </p>
+        </div>
+
+        <div class="row align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="icon"><i class="bi bi-person"></i></div>
+            <h4 class="title">{{ charity_subtitle_1 }}</h4>
+            <p class="description">{{ charity_subtxt_1 }}</p>
+            <br>
+            <div class="icon"><i class="bi bi-server"></i></div>
+            <h4 class="title">{{ charity_subtitle_2 }}</h4>
+            <p class="description">{{ charity_subtxt_2 }}</p>
+            <br>
+            <div class="icon"><i class="bi bi-cash-stack"></i></div>
+            <h4 class="title">{{ charity_subtitle_3 }}</h4>
+            <p class="description">{{ charity_subtxt_3 }}</p>
+          </div>
+
+          <div class="col-lg-6 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <br>
+              <img src="{{ url_for('static', filename='images/marte.png') }}" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="https://martestaking.eu/" title="More Details" target="blank_"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    -->
+    <!-- End Services Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <!--
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>{{ contact_title }}</h2>
+          <p>{{ contact_txt }}</p>
+        </div>
+        
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex justify-content-between">
+            <div class="info d-flex align-content-around flex-wrap">
+              <div class="address mt-3">
+                <i class="bi bi-geo-alt"></i>
+                <h4>{{ contact_location }}:</h4>
+                <p>{{ contact_dept }}</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>g.bigini@campus.uniurb.it</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6965.838587301421!2d12.633283209979847!3d43.7259198880487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cf8308fa105b1%3A0xb2674fcc33fdf124!2sPiazza%20della%20Repubblica%2C%2013%2C%2061029%20Urbino%20PU!5e0!3m2!1sen!2sit!4v1628150996600!5m2!1sen!2sit" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen=""></iframe>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

@@ -1,0 +1,62 @@
+{
+    "lang": "it_IT",
+
+    "navbar_home": "Home",
+    "navbar_about": "About",
+    "navbar_cv": "Curriculum Vitae",
+    "navbar_research": "Pubblicazioni Scientifiche",
+    "navbar_charity": "Beneficenza",
+    "navbar_contact": "Contatti",
+
+    "navbar_en": "Inglese",
+    "navbar_it": "Italiano",
+
+    "about_txt": "Data Scientist con sede a Urbino. Curioso, creativo e di mentalità aperta. Una mentalità appassionata basata sui dati, che si diverte a creare strumenti che sfruttano i dati nel processo decisionale.",
+    "about_skills_fields": "Settori",
+    "about_skills_languages": "Linguaggi",
+    "about_skills_platforms": "Piattaforme",
+    "about_skills_soft": "Soft",
+
+    "resume_title": "Curriculum Vitae",
+    "resume_title_education": "Educazione",
+    "resume_title_professional": "Esperienza Professionale",
+    "resume_phd_title": "PH.D. In Sanità Digitale",
+    "resume_phd_uniurb": "Università di Urbino, Urbino, Italia",
+    "resume_phd_txt_1": "Avviato a novembre 2019, il dottorato è in collaborazione tra Università degli Studi di Urbino, Politecnica delle Marche, e la startup DIGIT srl. Il dottorato è focalizzato sull'abilitazione dell'Intelligenza Artificiale nel settore sanitario attraverso la decentralizzazione.",
+    "resume_phd_txt_2": "Da un'occhiata alla sezione Pubblicazioni Scientifiche.",
+    "resume_msc_title": "Doppia Laurea Magistrale in Data Science",
+    "resume_msc_eit": "Data Science, Innovation and Entrepreneurship, EIT Digital, Stoccolma, Svezia",
+    "resume_msc_polimi": "Computer Science and Engineering, Politecnico di Milano, Milano, Italia",
+    "resume_msc_madrid": "Informatics Engineering, Universidad Politécnica de Madrid, Madrid, Spagna",
+    "resume_msc_txt": "Laureato presso l'EIT Digital Academy. Il programma ICT Innovation Double-Degree combina una specializzazione in Data Science con una specializzazione in Innovazione e Imprenditorialità. Il percorso mi ha permesso di acquisire una doppia laurea in Ingegneria e un Diploma in Data Science, da tutte le istituzioni di cui sopra.",
+    "resume_digit_title": "INGEGNERE FULL STACK E SVILUPPATORE MOBILE",
+    "resume_digit_inst": "DIGIT srl, Urbino, Italia",
+    "resume_digit_txt": "Leader nella progettazione, sviluppo e implementazione di Balance - Postural Stability. Balance - Postural Stability © è un'applicazione per smartphone sviluppata dai ricercatori dell'Università di Urbino per misurare la tua stabilità posturale. L'applicazione fa parte di un grande esperimento che mira a monitorare la stabilità umana.",
+    "resume_digit_txt_2": "Il progetto é guidato dal Prof. Emanuele Lattanzi il cui lavoro di ricerca é reperibile:",
+    "resume_imar_title": "DATA SCIENTIST",
+    "resume_imar_inst": "imar srl, Urbino, Italia",
+    "resume_imar_txt": "Progettazione della datawarehouse per scopi di business intelligence e ingegneria di processo. Progettazione di un sistema per il monitoraggio dei preventivi dei consumatori attraverso tecniche di machine learning. Creazione di database ed elaborazione dati per MySQL e Microsoft SQL Server.",
+    "resume_keywords": "Keyword",
+
+    "research_title": "Pubblicazioni Scientifiche",
+
+    "charity_title": "Beneficenza",
+    "charity_txt": "Sto cercando di immaginare un mondo in cui diamo più di quello che otteniamo. Sono l'SPO dietro MARTE Pool. Il pool è un pool di beneficenza a proprietà singola che devolve il 25% dei suoi premi a sostegno dell'Associazione Italiana Sclerosi Multipla (AISM ONLUS).",
+    "charity_subtitle_1": "Un Singolo Proprietario per una Singola Pool",
+    "charity_subtxt_1": "La pool é attiva 24/7 per massime Performance.",
+    "charity_subtitle_2": "Server di Proprietà",
+    "charity_subtxt_2": "L'infrastruttura di MARTE é mantenura totalmente e fisicamente dal suo SPO.",
+    "charity_subtitle_3": "Costi Operativi Minimi",
+    "charity_subtxt_3": "50k di Investimento, Base 340 e 0% tasse all'Operatore. L'obbiettivo é garantirvi la ricompensa annuale massima.",
+    
+    "contact_title": "Contattami",
+    "contact_txt": "Sentiti libero di contattarmi sui social network o attraverso i dati di contatto sottostanti.",
+    "contact_location": "Dove Sono",
+    "contact_dept": "Dipartimento di Scienze Pure e Applicate, Università di Urbino, Piazza della Repubblica 13, 61029 Urbino, Italia",
+    "contact_name": "Il tuo Nome",
+    "contact_email": "La tua Email",
+    "contact_subject": "Soggetto",
+    "contact_message": "Messaggio",
+
+    "send": "Invia Messaggio"
+}

@@ -16,23 +16,23 @@ Organizations:
     - &Org3
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: ExternalMSP
+        Name: Org3MSP
 
         # ID to load the MSP definition as
-        ID: ExternalMSP
+        ID: Org3MSP
 
-        MSPDir: ../organizations/peerOrganizations/external.halonetwork.com/msp
+        MSPDir: ../organizations/peerOrganizations/org3.example.com/msp
 
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('ExternalMSP.admin', 'ExternalMSP.peer', 'ExternalMSP.client')"
+                Rule: "OR('Org3MSP.admin', 'Org3MSP.peer', 'Org3MSP.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('ExternalMSP.admin', 'ExternalMSP.client')"
+                Rule: "OR('Org3MSP.admin', 'Org3MSP.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('ExternalMSP.admin')"
+                Rule: "OR('Org3MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('ExternalMSP.peer')"
+                Rule: "OR('Org3MSP.peer')"

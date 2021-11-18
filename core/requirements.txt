@@ -18,8 +18,12 @@ SQLAlchemy
 sqlalchemy_utils
 
 # Utils.
+Flask-WTF
+WTForms-Components
 fake-factory
 requests
+pyqrcode
+pypng
 
 # Extensions.
 ipfshttpclient
