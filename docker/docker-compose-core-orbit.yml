@@ -1,0 +1,40 @@
+version: "3"
+
+networks:
+  test:
+
+services:
+  core:
+    container_name: halo-core
+    build: ../core
+    command: >
+      gunicorn -b 0.0.0.0:8000
+        --access-logfile -
+        --reload
+        --workers=1
+        --threads=3
+        "core.app:create_app()"
+    depends_on:
+      - orbit
+    volumes:
+      - ../core:/core
+    env_file:
+      - '.env'
+    networks:
+      - test
+    ports:
+        - "8001:8000"
+
+  orbit:
+    container_name: halo-orbit
+    build: ../ipfs/orbit
+    command: >
+      node app.js
+    networks:
+      - test
+    env_file:
+      - '.env'
+    volumes:
+      - ../ipfs/orbit/ipfs:/usr/src/app/ipfs
+    ports:
+      - "4000:4000"

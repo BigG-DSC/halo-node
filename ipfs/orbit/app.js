@@ -1,4 +1,6 @@
 'use strict';
+
+// Libraries imports
 const log4js = require('log4js');
 const logger = log4js.getLogger('BasicNetwork');
 const bodyParser = require('body-parser');
@@ -8,14 +10,16 @@ const app = express();
 const cors = require('cors');
 const constants = require('./config/constants.json')
 
+// Local imports
+const dbLib = require("./app/storage/orbit.js"); 
+const createOrbit = require('./app/storage/createOrbit')
+const getDbAddress = require('./app/getDbAddress')
+const storeData = require('./app/storeData')
+
+// Server config
+logger.level = 'debug';
 const host = process.env.HOST || constants.host;
 const port = process.env.PORT || constants.port;
-
-const createOrbit = require('./app/createOrbit')
-const getDbAddress = require('./app/getDbAddress')
-
-let dbAddress = ""
-
 app.options('*', cors());
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,57 +27,100 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-logger.level = 'debug';
+// Global variables
+let db;
 
-var server = http.createServer(app).listen(port, function () { console.log(`Server started on ${port}`) });
-logger.info('****************** SERVER STARTED ************************');
-logger.info('***************  http://%s:%s  ******************', host, port);
-server.timeout = 240000;
+async function start() {
+    try {
+        // Open the Database
+        db = await dbLib.openDb();
 
-function getErrorMessage(field) {
-    var response = {
-        success: false,
-        message: field + ' field is missing or Invalid in the request'
-    };
-    return response;
+        // Start up the Express web server
+        app.listen(port).on("error", expressErrorHandler);
+        logger.info('****************** SERVER STARTED ************************');
+        logger.info('***************  http://%s:%s  ******************', host, port);
+
+        // Handle generic errors thrown by the express application.
+        function expressErrorHandler(err) {
+            if (err.code === "EADDRINUSE")
+                console.error(`Port ${port} is already in use. Is this program already running?`);
+            else console.error(JSON.stringify(err, null, 2));
+
+            console.error("Express could not start!");
+            process.exit(0);
+        }
+
+        // Allow any computer to access this API.
+        app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+        });
+
+        // Endpoints
+        app.get('/isAlive', async function (req, res) {
+            try {
+                var message = db.address.toString();
+        
+                const response_payload = {
+                    result: message,
+                    error: null,
+                    errorData: null
+                }
+                
+                res.send(response_payload);
+            } catch (error) {
+                console.error(`Failed to evaluate transaction: ${error}`);
+                return error.message
+            }
+        });
+        
+        app.post('/getData', async function (req, res) {
+            try {
+                
+                //const message = db.get('adsa-sasdas-dsadas').map((e) => e);
+                const message = db.query((doc) => doc);
+        
+                const response_payload = {
+                    result: message,
+                    error: null,
+                    errorData: null
+                }
+        
+                res.send(response_payload);
+            } catch (error) {
+                console.error(`Failed to evaluate transaction: ${error}`);
+                return error.message
+            }
+        });
+        
+        app.post('/storeData', async function (req, res) {
+            try {
+                const token = req.body.token;
+                const content = req.body.content;
+                const testNumber = req.body.testNumber;
+
+                db.put({ _id: token, doc: content, views: testNumber })
+
+                const response_payload = {
+                    result: "the result has been stored succesfully in the cyberspace",
+                    error: null,
+                    errorData: null
+                }
+        
+                res.send(response_payload);
+            } catch (error) {
+                console.error(`Failed to evaluate transaction: ${error}`);
+                return error.message
+            }
+        });
+
+    } catch(err) {
+        console.error(`Error in price-server.js: `,err);
+    }
 }
 
-app.get('/createOrbit', async function (req, res) {
-    try {
-        let message = await createOrbit.createOrbit();
-        dbAddress = message;
-
-        const response_payload = {
-            result: message,
-            error: null,
-            errorData: null
-        }
-
-        res.send(response_payload);
-    } catch (error) {
-        console.error(`Failed to evaluate transaction: ${error}`);
-        return error.message
-    }
-});
-
-app.post('/getDbAddress', async function (req, res) {
-    try {
-        var address = req.body.address;
-
-        let message = await getDbAddress.getDbAddress(address);
-
-        const response_payload = {
-            result: message,
-            error: null,
-            errorData: null
-        }
-
-        res.send(response_payload);
-    } catch (error) {
-        console.error(`Failed to evaluate transaction: ${error}`);
-        return error.message
-    }
-});
+start();
 
 //app.get('/channels/:channelName/chaincodes/:chaincodeName', async function (req, res) {
 //    try {

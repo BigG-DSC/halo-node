@@ -3,3 +3,4 @@ __pycache__
 node_modules/
 ipfs/orbit/ipfs/
 ipfs/orbit/orbitdb/
+package-lock.json
