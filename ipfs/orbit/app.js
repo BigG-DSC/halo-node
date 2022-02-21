@@ -14,7 +14,7 @@ const constants = require('./config/constants.json')
 const dbLib = require("./app/storage/orbit.js"); 
 const createOrbit = require('./app/storage/createOrbit')
 const getDbAddress = require('./app/getDbAddress')
-const storeData = require('./app/storeData')
+const storeData = require('./app/storage/storeData')
 
 // Server config
 logger.level = 'debug';

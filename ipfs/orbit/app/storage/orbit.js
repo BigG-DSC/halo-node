@@ -7,10 +7,10 @@
 
 "use strict"
 
-const IPFS = require('ipfs')
-const OrbitDB = require('orbit-db')
-let ipfs // handle for IPFS instance.
-let db // handle for orbit DB.
+const IPFS = require('ipfs');
+const OrbitDB = require('orbit-db');
+let ipfs; // handle for IPFS instance.
+let db; // handle for orbit DB.
 
 const util = require("util");
 util.inspect.defaultOptions = {
@@ -29,7 +29,11 @@ module.exports = {
 // Note that these options need to be passed to IPFS in
 // all examples in this document even if not specfied so.
 const ipfsOptions = { 
-  repo: "./ipfs" 
+  repo: "./ipfs"
+}
+
+const orbitOptions = { 
+  directory: "./orbitdb"
 }
 
 // Returns a promise that resolves to a handle of the DB.
@@ -42,7 +46,7 @@ async function openDb() {
     //ipfs.swarm.connect('/ip4/198.46.197.197/tcp/4001/ipfs/QmdXiwDtfKsfnZ6RwEcovoWsdpyEybmmRpVDXmpm5cpk2s'); // Connect to ipfs.p2pvps.net
 
     // Create OrbitDB instance
-    const orbitdb = await OrbitDB.createInstance(ipfs)
+    const orbitdb = await OrbitDB.createInstance(ipfs, orbitOptions)
 
     const access = {
       // Give write access to everyone
@@ -52,7 +56,6 @@ async function openDb() {
     // Load the DB.
     db = await orbitdb.docstore('balance', access)
     await db.load()
-
     console.log(`database string: ${db.address.toString()}`)
     //console.log(`db public key: ${db.key.getPublic('hex')}`)
 

@@ -36,5 +36,6 @@ services:
       - '.env'
     volumes:
       - ../ipfs/orbit/ipfs:/usr/src/app/ipfs
+      - ../ipfs/orbit/orbitdb:/usr/src/app/orbitdb
     ports:
       - "4000:4000"
