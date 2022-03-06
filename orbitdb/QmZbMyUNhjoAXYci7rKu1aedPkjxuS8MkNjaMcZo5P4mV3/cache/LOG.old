@@ -1,0 +1,7 @@
+2022/03/06-14:26:08.439071 ffffa9bff1d0 Recovering log #16
+2022/03/06-14:26:08.442805 ffffa9bff1d0 Level-0 table #18: started
+2022/03/06-14:26:08.461120 ffffa9bff1d0 Level-0 table #18: 18243 bytes OK
+2022/03/06-14:26:08.474596 ffffa9bff1d0 Delete type=0 #16
+2022/03/06-14:26:08.476003 ffffa9bff1d0 Delete type=3 #14
+2022/03/06-14:26:08.477095 ffff9b7fe1d0 Compacting 4@0 + 0@1 files
+2022/03/06-14:26:08.485479 ffff9b7fe1d0 compacted to: files[ 4 0 0 0 0 0 0 ]

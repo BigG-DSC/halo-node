@@ -1,5 +1,0 @@
-This is an automatically generated Delivery Status Notification for handling contact requests in GBigini Website.
-The email comes from: {{ name }} - {{ email }}
-
-Text:
-{{ message }}

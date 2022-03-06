@@ -1,7 +1,0 @@
-Dear {{ name }},
-
-The email you sent to my admin has been received. Generally, It takes up to 5 working days to
-receive an answer from him. So, just relax and wait for your response.
-
-Best Wishes,
-  Clarice
