@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 networks:
   test:
@@ -16,6 +16,8 @@ services:
         "core.app:create_app()"
     depends_on:
       - orbit
+    networks:
+      - test
     volumes:
       - ../core:/core
     env_file:
@@ -27,15 +29,15 @@ services:
 
   orbit:
     container_name: halo-orbit
-    build: ../ipfs/orbit
-    command: >
-      node app.js
+    build: ../ipfs
+    command: node app.js
+    env_file: .env    
     networks:
       - test
-    env_file:
-      - '.env'
     volumes:
-      - ../ipfs/orbit/ipfs:/usr/src/app/ipfs
-      - ../ipfs/orbit/orbitdb:/usr/src/app/orbitdb
+      - ../ipfs/ipfs:/home/node/ipfs
+      - ../ipfs/orbitdb:/home/node/orbitdb
     ports:
       - "4000:4000"
+      - "4001:4001"
+      - "4002:4002"

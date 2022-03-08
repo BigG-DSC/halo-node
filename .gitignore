@@ -1,6 +1,6 @@
 .DS_Store
 __pycache__
 node_modules/
-ipfs/orbit/ipfs/
-ipfs/orbit/orbitdb/
 package-lock.json
+ipfs/ipfs/
+ipfs/orbitdb/

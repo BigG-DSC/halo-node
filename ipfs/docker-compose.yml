@@ -1,19 +1,14 @@
 version: "3.9"
 
-networks:
-  test:
-
 services:
   orbit:
     container_name: halo-orbit
-    build: ../ipfs
+    build: .
     command: node app.js
-    env_file: .env    
-    networks:
-      - test
+    env_file: .env
     volumes:
-      - ../ipfs/ipfs:/home/node/ipfs
-      - ../ipfs/orbitdb:/home/node/orbitdb
+      - ./ipfs:/home/node/ipfs
+      - ./orbitdb:/home/node/orbitdb
     ports:
       - "4000:4000"
       - "4001:4001"
